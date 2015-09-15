@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BDBOAuth1Manager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JTProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>NSDate+TimeAgo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>2D4DFF6CEC00A7A918A9CA83EE636336</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A96EB16E79A0D61ABBAAB8BABADDE048</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ABEC38A9EC18934D80A37E0E4F986762</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D682D346CD1AA1B6715C82CE459025E7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE72D2B9ECB56A58F34F1623042B1D1D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

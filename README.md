@@ -28,4 +28,4 @@ Time spent: `15`
 
 ### Walkthrough
 
-![mytwitterapp.gif](mytwitterapp.gif)
+![mytwitterapp.gif](mjTwittr/mytwitterapp.gif)

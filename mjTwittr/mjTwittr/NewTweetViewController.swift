@@ -22,13 +22,13 @@ class NewTweetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var rightSubmitTweetBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: "Tweet", style: UIBarButtonItemStyle.Plain, target: self, action: "submitTweet:")
-        var rightWordCountBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: "\(wordCount.stringValue)", style: UIBarButtonItemStyle.Plain, target: self, action: "changeWordCount:")
+        let rightSubmitTweetBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: "Tweet", style: UIBarButtonItemStyle.Plain, target: self, action: "submitTweet:")
+        let rightWordCountBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: "\(wordCount.stringValue)", style: UIBarButtonItemStyle.Plain, target: self, action: "changeWordCount:")
         
         
         self.navigationItem.setRightBarButtonItems([rightSubmitTweetBarButtonItem,rightWordCountBarButtonItem], animated: true)
         
-        var btn = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: nil)
+        let btn = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: nil)
         
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = btn
         self.navigationController?.navigationBar.backIndicatorImage = nil
@@ -44,17 +44,17 @@ class NewTweetViewController: UIViewController {
     }
     
     func submitTweet(sender: UIButton) {
-        println("submitted tweet")
+        print("submitted tweet")
         TwitterClient.sharedInstance.postTweet(newTweetText.text, in_reply_to_status_id: nil, completion: { (tweet, error) -> () in
             self.tweet = tweet
-            println("the new tweet \(self.tweet!)")
+            print("the new tweet \(self.tweet!)")
             self.delegate?.newTweetViewController!(self, didCreateTweet: self.tweet!)
         })
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func changeWordCount(sender: UIButton) {
-        println("decrement word count")
+        print("decrement word count")
     }
     
 

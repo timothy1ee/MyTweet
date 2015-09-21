@@ -27,7 +27,7 @@ class User: NSObject {
         screenname = dictionary["screen_name"] as? String
         profileImgUrl = dictionary["profile_image_url"] as? String
         profileImgUrl = profileImgUrl?.stringByReplacingOccurrencesOfString("normal", withString: "bigger", options: NSStringCompareOptions.LiteralSearch, range: nil)
-        println("HD PROFILE PIC: \(profileImgUrl!)")
+        print("HD PROFILE PIC: \(profileImgUrl!)")
         tagline = dictionary["description"] as? String
     }
     
@@ -42,9 +42,9 @@ class User: NSObject {
     class var currentUser: User? {
         get {
             if _currentUser == nil {
-                var data = NSUserDefaults.standardUserDefaults().objectForKey(currentUserKey) as? NSData
+                let data = NSUserDefaults.standardUserDefaults().objectForKey(currentUserKey) as? NSData
                 if data != nil {
-                    var dictionary = NSJSONSerialization.JSONObjectWithData(data!, options: nil, error: nil) as! NSDictionary
+                    let dictionary = (try! NSJSONSerialization.JSONObjectWithData(data!, options: [])) as! NSDictionary
                     _currentUser = User(dictionary: dictionary)
                 }
             }
@@ -54,7 +54,7 @@ class User: NSObject {
             _currentUser = user
             
             if _currentUser != nil {
-                var data = NSJSONSerialization.dataWithJSONObject(user!.dictionary, options: nil, error: nil)
+                let data = try? NSJSONSerialization.dataWithJSONObject(user!.dictionary, options: [])
                 NSUserDefaults.standardUserDefaults().setObject(data, forKey: currentUserKey)
             } else {
                 NSUserDefaults.standardUserDefaults().setObject(nil, forKey: currentUserKey)

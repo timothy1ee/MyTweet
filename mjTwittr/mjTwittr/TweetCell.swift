@@ -26,14 +26,14 @@ class TweetCell: UITableViewCell {
     
     @IBAction func retweetTweet(sender: AnyObject) {
         TwitterClient.sharedInstance.retweetTweet(self.tweet!.id?.stringValue, completion: { (tweet, error) -> () in
-            var image = UIImage(named: "Retweet_On") as UIImage?
+            let image = UIImage(named: "Retweet_On") as UIImage?
             sender.setImage(image, forState: UIControlState.Normal)
         })
     }
     
     @IBAction func favoriteTweet(sender: AnyObject) {
         TwitterClient.sharedInstance.favoriteTweet(self.tweet!.id?.stringValue, completion: { (tweet, error) -> () in
-            var image = UIImage(named: "Favorite_On") as UIImage?
+            let image = UIImage(named: "Favorite_On") as UIImage?
             sender.setImage(image, forState: UIControlState.Normal)
         })
     }
@@ -42,8 +42,8 @@ class TweetCell: UITableViewCell {
     var tweet: Tweet! {
         didSet {
             if tweet.retweet != nil {
-                var retweet = tweet.retweet!
-                var url = NSURL(string: retweet.user!.profileImgUrl!)
+                let retweet = tweet.retweet!
+                let url = NSURL(string: retweet.user!.profileImgUrl!)
                 avatarImageView.setImageWithURL(url)
                 nameLabel.text = retweet.user?.name
                 handleLabel.text = "@" + retweet.user!.screenname!
@@ -55,15 +55,15 @@ class TweetCell: UITableViewCell {
                 retweetedByLabel.hidden = false
                 retweetedByLabel.text = tweet!.user!.screenname! + " retweeted"
                 if retweet.favorited == true {
-                    var image = UIImage(named:"Favorite_On")!
+                    let image = UIImage(named:"Favorite_On")!
                     favoriteImageView = UIImageView(image: image)
                 }
                 if retweet.retweeted == true {
-                    var image = UIImage(named:"Retweet_On")!
+                    let image = UIImage(named:"Retweet_On")!
                     retweetImageView = UIImageView(image: image)
                 }
             } else {
-                var url = NSURL(string: tweet.user!.profileImgUrl!)
+                let url = NSURL(string: tweet.user!.profileImgUrl!)
                 avatarImageView.setImageWithURL(url)
                 nameLabel.text = tweet.user?.name
                 handleLabel.text = "@" + tweet.user!.screenname!
@@ -74,11 +74,11 @@ class TweetCell: UITableViewCell {
                 retweetedByImageView.hidden = true
                 retweetedByLabel.hidden = true
                 if tweet.favorited == true {
-                    var image = UIImage(named:"Favorite_On")!
+                    let image = UIImage(named:"Favorite_On")!
                     favoriteImageView = UIImageView(image: image)
                 }
                 if tweet.retweeted == true {
-                    var image = UIImage(named:"Retweet_On")!
+                    let image = UIImage(named:"Retweet_On")!
                     retweetImageView = UIImageView(image: image)
                 }
             }

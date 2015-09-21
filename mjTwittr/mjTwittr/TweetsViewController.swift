@@ -109,7 +109,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let s = sender as? UITableViewCell {
             let cell = s
-            var indexPath = tableView.indexPathForCell(cell)!
+            let indexPath = tableView.indexPathForCell(cell)!
             let tweet = tweets![indexPath.row]
             
             let tweetDetailsViewController = segue.destinationViewController as! TweetDetailsViewController

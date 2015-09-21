@@ -23,7 +23,7 @@ class TweetDetailsViewController: UIViewController {
     @IBAction func favoriteTweet(sender: AnyObject) {
         
         TwitterClient.sharedInstance.favoriteTweet(tweet!.id?.stringValue, completion: { (tweets, error) -> () in
-            var image = UIImage(named: "Favorite_On") as UIImage?
+            let image = UIImage(named: "Favorite_On") as UIImage?
             sender.setImage(image, forState: UIControlState.Normal)
         })
     }
@@ -35,7 +35,7 @@ class TweetDetailsViewController: UIViewController {
     @IBAction func retweetTweet(sender: AnyObject) {
         
         TwitterClient.sharedInstance.retweetTweet(tweet!.id?.stringValue, completion: { (tweets, error) -> () in
-            var image = UIImage(named: "Retweet_On") as UIImage?
+            let image = UIImage(named: "Retweet_On") as UIImage?
             sender.setImage(image, forState: UIControlState.Normal)
         })
         
@@ -45,21 +45,21 @@ class TweetDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var retweet = tweet?.retweet as Tweet!
+        let retweet = tweet?.retweet as Tweet!
         if retweet != nil {
-            var retweetedUser = retweet.user
+            let retweetedUser = retweet.user
             retweetedByImageView.hidden = false
             retweetedByLabel.text = tweet!.user!.screenname! + " retweeted"
             nameLabel.text = retweetedUser!.name!
             handleLabel.text = retweetedUser!.screenname!
-            var url = NSURL(string: retweetedUser!.profileImgUrl!)
+            let url = NSURL(string: retweetedUser!.profileImgUrl!)
             avatarImageView.setImageWithURL(url)
             tweetLabel.text = retweet.text!
             
             let formatter = NSDateFormatter()
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
             formatter.timeZone = NSTimeZone(name: "EST")
-            var tsString = retweet.createdAtString!
+            let tsString = retweet.createdAtString!
             let timestamp = formatter.dateFromString(tsString)
             
             formatter.dateFormat = "MM/dd/yy, hh:mm a"
@@ -67,8 +67,8 @@ class TweetDetailsViewController: UIViewController {
             let ts = formatter.stringFromDate(timestamp!)
             
             timestampLabel.text = ts
-            var rcount = retweet.retweets!
-            var fcount = retweet.favorites!
+            let rcount = retweet.retweets!
+            let fcount = retweet.favorites!
             retweetCount.text = rcount.stringValue
             favoriteCount.text = fcount.stringValue
 
@@ -78,14 +78,14 @@ class TweetDetailsViewController: UIViewController {
             
             nameLabel.text = tweet!.user?.name!
             handleLabel.text = tweet!.user?.screenname!
-            var url = NSURL(string: tweet!.user!.profileImgUrl!)
+            let url = NSURL(string: tweet!.user!.profileImgUrl!)
             avatarImageView.setImageWithURL(url)
             tweetLabel.text = tweet!.text!
             
             let formatter = NSDateFormatter()
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
             formatter.timeZone = NSTimeZone(name: "EST")
-            var tsString = tweet!.createdAtString!
+            let tsString = tweet!.createdAtString!
             let timestamp = formatter.dateFromString(tsString)
             
             formatter.dateFormat = "MM/dd/yy, hh:mm a"
@@ -93,14 +93,17 @@ class TweetDetailsViewController: UIViewController {
             let ts = formatter.stringFromDate(timestamp!)
             
             timestampLabel.text = ts
-            var rcount = tweet!.retweets!
-            var fcount = tweet!.favorites!
+            let rcount = tweet!.retweets!
+            let fcount = tweet!.favorites!
             retweetCount.text = rcount.stringValue
             favoriteCount.text = fcount.stringValue
             
         }
-        println("here \(tweet?.retweet)")
+        print("here \(tweet?.retweet)")
         
+        
+        avatarImageView.layer.cornerRadius = 3
+        avatarImageView.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
 

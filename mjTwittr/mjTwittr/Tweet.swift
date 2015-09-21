@@ -34,12 +34,12 @@ class Tweet: NSObject {
         
         if dictionary["retweeted_status"] != nil {
             retweet = Tweet(dictionary: dictionary["retweeted_status"] as! NSDictionary)
-            println("RETWEETED STATUS: \(retweet)")
+            print("RETWEETED STATUS: \(retweet)")
         }
         
-        println("dictionary: \(dictionary as NSDictionary)")
+        print("dictionary: \(dictionary as NSDictionary)")
         
-        var formatter = NSDateFormatter()
+        let formatter = NSDateFormatter()
         
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
         formatter.timeZone = NSTimeZone(name: "EST")
